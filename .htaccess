@@ -1,0 +1,10 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# If the requested file or directory exists, serve it
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise, serve index.html (for client-side routing like about, contact)
+RewriteRule ^ index.html [L]
